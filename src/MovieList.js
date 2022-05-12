@@ -36,6 +36,24 @@ export default function MovieList() {
         setMovies(movies.filter((item) => item.id != id));
     }
 
+    function sortByAlpha() {
+        //Sort after något
+        const sortedMovies = [...movies].sort((a, b) => {
+            return a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1;
+        });
+
+        setMovies(sortedMovies);
+    }    
+
+    function sortByRating(){
+        //sort by rating
+        const sortedMovies = [...movies].sort((a, b) => {
+            return a.rating < b.rating ? 1 : -1;
+        });
+
+        setMovies(sortedMovies);
+    }
+
     return (
         <div>
             <input className="form-control" id="inputTitle" ref={inputRef} placeholder="Add New Movie" />
@@ -53,6 +71,8 @@ export default function MovieList() {
             <ul className="list-group">
                 {movies.map(movie => <Movie key={movie.id} item={movie} deleteMovie={deleteMovie} />)}
             </ul>
+            <button class="btn btn-primary" onClick={sortByAlpha}>Sort after letter</button>
+            <button class="btn btn-primary" onClick={sortByRating}>Sort after Rating</button>
         </div>
         
     )
