@@ -2,10 +2,9 @@ import React, { useState, useRef } from 'react';
 import Movie from './Movie';
 
 export default function MovieList() {
-    const [movies, setMovies] = useState([{
-        id: 1,
-        title: "First Movie"
-    }]);
+    const [movies, setMovies] = useState([
+        
+    ]);
     const inputRef = useRef();
     const ratingRef = useRef();
 
@@ -37,7 +36,7 @@ export default function MovieList() {
     }
 
     function sortByAlpha() {
-        //Sort after något
+        //Sort by letter
         const sortedMovies = [...movies].sort((a, b) => {
             return a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1;
         });
