@@ -55,10 +55,11 @@ export default function MovieList() {
 
     return (
         <div>
-            <input className="form-control" id="inputTitle" ref={inputRef} placeholder="Add New Movie" />
-            <label htmlFor="rating-field" id="ratings">Betyg:</label>
+            <label htmlFor="inputTitle" className="fw-bold Title mt-4">Titel:</label>
+            <input className="form-control muted" id="inputTitle" ref={inputRef} placeholder="Lägg till Film" />
+            <label htmlFor="rating-field" className="fw-bold ratings">Betyg:</label>
 
-            <select type="text" id="rating-field" ref={ratingRef} className="form-control">
+            <select type="text" id="rating-field" ref={ratingRef} className="bg-white form-control">
                 <option value="0">Välj betyg här...</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -66,12 +67,13 @@ export default function MovieList() {
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-            <button class="btn btn-primary" onClick={addMovie}>Lägg till film</button>
-            <ul className="list-group">
+            <button className="btn btn-success" onClick={addMovie}>Spara film</button>
+            <h2>Inlagda filmer</h2>
+            <ul className="list-group ">
                 {movies.map(movie => <Movie key={movie.id} item={movie} deleteMovie={deleteMovie} />)}
             </ul>
-            <button class="btn btn-primary" onClick={sortByAlpha}>Sort after letter</button>
-            <button class="btn btn-primary" onClick={sortByRating}>Sort after Rating</button>
+            <button className="btn btn-primary" onClick={sortByAlpha}>Alfabetisk ordning</button>
+            <button className="btn btn-primary" onClick={sortByRating}>Betygordning</button>
         </div>
         
     )

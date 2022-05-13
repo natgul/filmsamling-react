@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 
 export default function Movie(props){
     function showStars(numberStars) {
@@ -12,10 +13,11 @@ export default function Movie(props){
     }
 
     return (
-        <li className='list-group-item'>
+        <li className='list-group-item bg-light bg-gradient m-1'>
             { props.item.title }
+            <img className="cross" src="./delete.png" onClick={() => {props.deleteMovie(props.item.id)}}></img>
             {showStars(props.item.rating)}
-            <button className="btn btn-sm btn-danger float-end" onClick={() => {props.deleteMovie(props.item.id)}}>X</button>
         </li>
     )
 }
+
