@@ -13,10 +13,12 @@ export default function MovieList() {
         const rating = ratingRef.current.value;
         console.log(rating);
         if (title != "") {
+            //Validate input of title
             if (rating >= 1 && rating <= 5) {
-                console.log('lägger till en film');
+                //Validate input of grade
                 const newId = movies.length > 0 ? movies[movies.length - 1].id + 1 : 1;
                 setMovies([...movies, {
+                    //Adds movie to list 
                     id: newId,
                     title: inputRef.current.value,
                     rating: ratingRef.current.value,
@@ -32,6 +34,7 @@ export default function MovieList() {
     }
 
     function deleteMovie(id) {
+        //Deletes clicked movie
         setMovies(movies.filter((item) => item.id != id));
     }
 
@@ -54,6 +57,7 @@ export default function MovieList() {
     }
 
     return (
+        //Print inputs and list, including buttons
         <div>
             <label htmlFor="inputTitle" className="fw-bold Title mt-4">Titel:</label>
             <input className="form-control muted" id="inputTitle" ref={inputRef} placeholder="Lägg till Film" />
